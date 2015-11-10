@@ -17,6 +17,8 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
+    'pyramid_beaker',
+    'psycopg2',
     ]
 
 setup(name='Project',

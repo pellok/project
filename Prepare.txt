@@ -31,3 +31,9 @@ pserve development.ini
 pserve development.ini --reload
 
 python setup.py sdist
+
+#Install psycopg2
+http://www.stickpeople.com/projects/python/win-psycopg/
+unzip to <venv_dir>\Lib\site-packages\ directory
+env\Lib\site-packages\psycopg2
+env\Lib\site-packages\psycopg2-2.6.1-py2.7.egg-info
