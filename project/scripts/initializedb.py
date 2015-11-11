@@ -23,7 +23,13 @@ def usage(argv):
           '(example: "%s development.ini")' % (cmd, cmd))
     sys.exit(1)
 
+"""
+getpass_func=getpass : Portable password input
+https://docs.python.org/2/library/getpass.html
+input_func=raw_input
+https://docs.python.org/2/library/functions.html#raw%5Finput
 
+"""
 def main(argv=sys.argv, input_func=raw_input, getpass_func=getpass.getpass):
     if len(argv) < 2:
         usage(argv)
