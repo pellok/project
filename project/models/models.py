@@ -4,8 +4,10 @@ from sqlalchemy import (Column, Index, Integer, Text, )
 Base = declarative_base()
 
 """Table MyModel"""
+
+
 class MyModel(Base):
-    __tablename__ = 'models'
+    __tablename__ = 't_json'
     id = Column(Integer, primary_key=True)
     name = Column(Text)
     value = Column(Integer)

@@ -5,19 +5,18 @@ from zope.sqlalchemy import ZopeTransactionExtension
 
 
 """Setup database engine and  session"""
+
+
 def setup_database_setting(**settings):
-	if 'engine' not in settings:
-		settings['engine'] = (
-			engine_from_config(settings, 'sqlalchemy.')
-		)
-	if 'session' not in settings:
-		settings['session'] =scoped_session(
-			sessionmaker(
-				extension=ZopeTransactionExtension(keep_session=True),
-				bind=settings['engine']
-			)
-		)
-	return settings
-
-
-
+    if 'engine' not in settings:
+        settings['engine'] = (
+            engine_from_config(settings, 'sqlalchemy.')
+        )
+    if 'session' not in settings:
+        settings['session'] = scoped_session(
+            sessionmaker(
+                extension=ZopeTransactionExtension(keep_session=True),
+                bind=settings['engine']
+            )
+        )
+    return settings

@@ -2,13 +2,11 @@ import os
 import sys
 import transaction
 import getpass
-
 from sqlalchemy import engine_from_config
-
 from pyramid.paster import (
     get_appsettings,
     setup_logging,
-    )
+)
 
 from pyramid.scripts.common import parse_vars
 
@@ -30,6 +28,8 @@ input_func=raw_input
 https://docs.python.org/2/library/functions.html#raw%5Finput
 
 """
+
+
 def main(argv=sys.argv, input_func=raw_input, getpass_func=getpass.getpass):
     if len(argv) < 2:
         usage(argv)
@@ -42,10 +42,9 @@ def main(argv=sys.argv, input_func=raw_input, getpass_func=getpass.getpass):
     settings = setup_database_setting(**settings)
     engine = settings['engine']
     session = settings['session']
-    
+
     """Init DB Table"""
     models.Base.metadata.create_all(engine, checkfirst=True)
-    
 
     """Init DB Data"""
     with transaction.manager:
