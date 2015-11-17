@@ -11,8 +11,7 @@ from pyramid.paster import (
 from pyramid.scripts.common import parse_vars
 
 from ..models import setup_database_setting
-from ..models import models
-from ..models.models import MyModel
+from ..models import MyModel
 
 
 def usage(argv):
@@ -44,9 +43,9 @@ def main(argv=sys.argv, input_func=raw_input, getpass_func=getpass.getpass):
     session = settings['session']
 
     """Init DB Table"""
-    models.Base.metadata.create_all(engine, checkfirst=True)
+    MyModel.Base.metadata.create_all(engine, checkfirst=True)
 
     """Init DB Data"""
-    with transaction.manager:
-        model = MyModel(name='one', value=1)
-        session.add(model)
+    # with transaction.manager:
+        # model = MyModel(name='one', value=1)
+        # session.add(model)

@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Json Tools</title>
+    <title>${ title }</title>
     <!-- Bootstrap CSS -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,23 +18,78 @@
 
 <body>
     <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Title</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
         <h1 class="text-center">Hello World</h1>
-        <form action="/createJson" method="POST" class="form-horizontal" role="form">
+        <form action="/createJson" method="POST" class="form-inline" role="form">
             <div class="form-group">
-                <legend>Please give Json</legend>
+                <label class="sr-only" for="">SetJson</label>
+                <textarea name="value" id="inputValue" class="form-control" rows="3" required="required"></textarea>
             </div>
-            <textarea name="jsonStr" id="inputJsonStr" class="form-control" rows="3" required="required"></textarea>
-            <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <h2>List</h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                % for list in lists:
+                <tr>
+                    <td>
+                        <p>${ list['id'] }</p>
+                    </td>
+                    <td>
+                        <p>${ list['value'] }</p>
+                    </td>
+                </tr>
+                % endfor
+            </tbody>
+        </table>
     </div>
     <!-- jQuery -->
-    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

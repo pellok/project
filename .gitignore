@@ -1,3 +1,5 @@
 env/*
 Project.egg-info/*
 *.pyc
+.idea/*
+*.sqlite
